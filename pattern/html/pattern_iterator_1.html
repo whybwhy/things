@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var TodoList = (
+            function() {
+                function TodoList(list) {
+                    this.list = list;
+                    this.index = 0;
+                }
+
+                TodoList.prototype.next = function() {
+                    //this.list[i].call(null);
+                    console.log(this.list[this.index]);
+                    this.index ++;
+                }
+
+                TodoList.prototype.done = function() {
+                    return this.list.length === this.index;
+                }
+                return TodoList;
+            }
+        )();
+
+        var todoList = new TodoList(['function_1', 'function_2', 'function_3']);
+        todoList.next();
+        todoList.next();
+        console.log(todoList.done());
+        todoList.next();
+        console.log(todoList.done());
+        todoList.next();
+        console.log(todoList.done());
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flyweight</title>
+    <script>
+        var Minion = (function() {
+            function Minion(name) {
+                this.name = name;
+            }
+
+            Minion.prototype.hp = 100;
+            Minion.prototype.mp = 70;
+            Minion.prototype.attack = function(target) {
+                console.log(this.name + target.name);
+            }
+            return Minion;
+        })();
+
+        const m0 = new Minion("m0");
+        const m1 = new Minion("m1");
+        console.log(m0.hp);
+        m0.hp = 200;
+        console.log(m0.hp)
+        m0.attack(m1);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

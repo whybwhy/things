@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adapter</title>
+    <script>
+
+        var Coffee = (function() {
+            function Coffee(recipe) {
+                //console.log(this);
+                this.recipe = recipe;
+            }
+            Coffee.prototype.make = function() {
+                this.recipe.make();
+            }
+            return Coffee;
+        })();
+
+
+
+        const americano = {
+            make : function() {
+                console.log("americano~");
+          }
+        };
+        const latte = {
+            make : function() {
+                console.log("latte~");
+            }
+        };
+
+        let coffee = new Coffee(americano);
+        coffee.make();
+        coffee = new Coffee(latte);
+        coffee.make();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

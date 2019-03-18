@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="algorithm">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>about algorithm with javascript</title>
+
+    <link rel="stylesheet" href="../node_modules/material-design-lite/material.min.css">
+    <script src="../node_modules/material-design-lite/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        div .mdl-cell {
+            border: 5px solid gray;
+            border-radius: 5px;
+            margin: 10px auto;
+            padding: 20px;
+            width: 70%;
+
+        }
+        table {
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .dev_list {
+            display: inline-block;
+        }
+
+        td {
+            height: 50px;
+            width: 50px;
+            color: black;
+            background-color: #00bfa5;
+        }
+    </style>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+</head>
+<body>
+    <!-- Simple header with scrollable tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">알고리즘 (feat.javascript)</span>
+            </div>
+            <!-- Tabs -->
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#scroll-tab-1" class="mdl-layout__tab is-active">자료구조</a>
+                <a href="#scroll-tab-2" class="mdl-layout__tab">기본 알고리즘</a>
+                <a href="#scroll-tab-3" class="mdl-layout__tab">정렬</a>
+                <a href="#scroll-tab-4" class="mdl-layout__tab">검색</a>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Title</span>
+        </div>
+        <main class="mdl-layout__content">
+            <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+                <div class="page-content">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell">
+                            <h4>Array</h4>
+                            <table class="stand-alone">
+                                <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mdl-cell">
+                            <h4>list</h4>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>0</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="material-icons">redo</i>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="material-icons">redo</i>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>2</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="material-icons">redo</i>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>3</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="material-icons">redo</i>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <i class="material-icons">redo</i>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>5</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="material-icons">redo</i>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>6</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="material-icons">redo</i>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>7</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <i class="material-icons">redo</i>
+                            <table class="dev_list">
+                                <tbody>
+                                <tr>
+                                    <td>8</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mdl-cell">
+                            <h4>stack</h4>
+                            <table>
+                                <tr><td>4</td></tr>
+                                <tr><td>3</td></tr>
+                                <tr><td>2</td></tr>
+                                <tr><td>1</td></tr>
+                                <tr><td>0</td></tr>
+                            </table>
+
+                        </div>
+                        <div class="mdl-cell">
+                            <h4>queue</h4>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mdl-cell">
+                            <h4>tree</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+                <div class="page-content">
+                    <div class="mdl-cell">
+                        list
+
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+                <div class="page-content">
+11
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+                <div class="page-content">
+                    <div class="mdl-cell">
+                        list
+11111
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-5">
+                <div class="page-content"></div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="scroll-tab-6">
+                <div class="page-content">
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
