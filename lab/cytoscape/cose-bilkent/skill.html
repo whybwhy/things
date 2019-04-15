@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="ecma5_this.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.18/cytoscape.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
+    <script type="text/javascript" src="tinycolor.js"></script>
+
+</head>
+<body>
+
+<div id="cy"></div>
+<script>
+    // initialize
+    const cy = cytoscape({
+        container: document.getElementById("cy"),
+        boxSelectionEnabled: false,
+        autounselectify: true,
+        layout: {
+            name: "cose-bilkent",
+            animate: false,
+            fit: true,
+            circle: true
+        },
+        style: [
+            {
+                selector: "node",
+                style: {
+                    "font-size": 7,
+                    "font-family": "Roboto Mono",
+                    "text-max-width": 15,
+                    "background-color": "#8fc1e3",
+                    "label": "data(label)",
+                    "color": "black",
+                    "text-valign": "center",
+                    "text-halign": "center",
+                    "shape": "ellipse",  // 노드 모양
+                    "width": 30,
+                    "height": 30
+                }
+            },
+            {
+                selector: "edge",
+                style: {
+                    "width": 1,
+                    "line-color": "#ccc",    // 화살표 색상
+                    "curve-style": "bezier", //화살머리 사용여부 결정
+                    "line-style": "solid", // 화살선
+                    "target-arrow-color": "#ccc",   // 화살머리 색상
+                    "target-arrow-shape": "triangle"  // 화살머리 모양
+                }
+            }
+        ],
+        elements: {
+            nodes: [
+                <!-- root -->
+                { data: { id: "skill", label: "skill" } },
+                <!-- scm -->
+                { data: { id: "scm", label: "scm" } },
+                { data: { id: "solution", label: "기업형 형상관리솔루션" } },
+                { data: { id: "svn", label: "subversion" } },
+                { data: { id: "perforce", label: "perforce" } },
+                { data: { id: "git", label: "git", "url" : "https://github.com/whybwhy" } },
+                { data: { id: "terminal", label: "terminal", "url" : "" } },
+                { data: { id: "sourcetree", label: "sourcetree", "url" : "" } },
+                <!-- java -->
+                { data: { id: "java", label: "java" } },
+                { data: { id: "springframework", label: "springframework" } },
+                { data: { id: "springboot", label: "springboot" } },
+                <!-- db -->
+                { data: { id: "db", label: "db" } },
+                { data: { id: "mssql", label: "mssql" } },
+                { data: { id: "oracle", label: "oracle" } },
+                <!-- web server -->
+                { data: { id: "server", label: "webserver" } },
+                { data: { id: "aws", label: "aws_lightsail" } },
+                { data: { id: "tomcat", label: "apache+tomcat" } },
+                <!-- os -->
+                { data: { id: "os", label: "os" } },
+                { data: { id: "windows", label: "windows" } },
+                { data: { id: "unix", label: "unix계열" } },
+                { data: { id: "mac", label: "mac" } },
+
+                <!-- javascript -->
+                { data: { id: "javascript", label: "javascript" } },
+
+                { data: { id: "scope" , label: "scope"}},
+                { data: { id: "functionlevelscope", label: "function_level_scope"}},
+                { data: { id: "lexicalscope", label: "lexicalscope"}},
+                { data: { id: "closure", label:"closure"}},
+                { data: { id: "hoisting" , label: "hoisting"}},
+                { data: { id: "scopechain" , label: "scope chain"}},
+                { data: { id: 'this' , label : 'this'}},
+                { data: { id: "prototype" , label: "prototype"}},
+                { data: { id: "proto" , label: "__proto__"}},
+                { data: { id: "constructer" , label: "constructor"}},
+                { data: { id: "window" , label: "window"}},
+                { data: { id: "extends" , label: "extends"}},
+                { data: { id: "es6" , label: "es6"}},
+                { data: { id: "execute" , label: "execute"}},
+                { data: { id: "callstack" , label: "call_stack"}},
+                { data: { id: "eventloop" , label: "event_loop"}},
+                { data: { id: "background" , label: "background"}},
+                { data: { id: "taskqueue" , label: "task_queue"}},
+
+                { data: { id: 'new' , label : 'new'}},
+                { data: { id: 'method' , label : 'method'}},
+                { data: { id: 'bca' , label : 'bind,call,apply'}},
+                { data: { id: 'arrow_function' , label : 'es6.arrowFunction'}}
+
+
+            ],
+            edges: [
+                <!-- root -->
+                { data: { id: "e0", source: "skill", target: "scm" } },
+                { data: { id: "e1", source: "skill", target: "java" } },
+                { data: { id: "e2", source: "skill", target: "db" } },
+                { data: { id: "e3", source: "skill", target: "server" } },
+                { data: { id: "e4", source: "skill", target: "os" } },
+                { data: { id: "e5", source: "skill", target: "javascript" } },
+
+                <!-- scm -->
+                { data: { id: "e00", source: "scm", target: "solution" } },
+                { data: { id: "e01", source: "scm", target: "svn" } },
+                { data: { id: "e02", source: "scm", target: "perforce" } },
+                { data: { id: "e03", source: "scm", target: "git" } },
+                { data: { id: "e04", source: "git", target: "terminal" } },
+                { data: { id: "e05", source: "git", target: "sourcetree" } },
+
+                <!-- java -->
+                { data: { id: "e10", source: "java", target: "springframework" } },
+                { data: { id: "e11", source: "java", target: "springboot" } },
+
+                <!-- db -->
+                { data: { id: "e20", source: "db", target: "oracle" } },
+                { data: { id: "e21", source: "db", target: "mssql" } },
+
+                <!-- web server-->
+                { data: { id: "e30", source: "server", target: "aws" } },
+                { data: { id: "e31", source: "server", target: "tomcat" } },
+
+                <!-- os -->
+                { data: { id: "e40", source: "os", target: "windows" } },
+                { data: { id: "e41", source: "os", target: "unix" } },
+                { data: { id: "e42", source: "os", target: "mac" } },
+
+                <!-- javascript -->
+
+                { data: { id: "e50", source: "javascript", target: "scope" }},
+                { data: { id: "e51", source: "scope", target: "functionlevelscope" }},
+                { data: { id: "e52", source: "scope", target: "lexicalscope" }},
+                { data: { id: "e53", source: "javascript", target: "closure" }},
+                { data: { id: "e54", source: "javascript", target: "hoisting" }},
+                { data: { id: "e55", source: "scope", target: "scopechain" }},
+
+                { data: { id: "e56", source: "javascript", target: "this" }},
+                { data: { id: "e57", source: "javascript", target: "prototype" }},
+                { data: { id: "e58", source: "prototype", target: "proto" }},
+                { data: { id: "e59", source: "prototype", target: "constructer" }},
+                { data: { id: "e60", source: "javascript", target: "window" }},
+                { data: { id: "e61", source: "javascript", target: "es6" }},
+                { data: { id: "e62", source: "es6", target: "extends" }},
+
+                { data: { id: "e630", source: "javascript", target: "execute" }},
+                { data: { id: "e63", source: "execute", target: "callstack" }},
+                { data: { id: "e64", source: "execute", target: "background" }},
+                { data: { id: "e65", source: "execute", target: "taskqueue" }},
+                { data: { id: "e66", source: "execute", target: "eventloop" }},
+
+                { data: { id: "e67", source: "this", target: "new" }},
+                { data: { id: "e68", source: "this", target: "method" }},
+                { data: { id: "e69", source: "this", target: "bca" }},
+                { data: { id: "e70", source: "this", target: "arrow_function" }}
+
+
+
+            ]
+        }
+    });
+
+    cy.fit();
+    cy.on("mouseover tapstart", "node", function(event){
+        let node = event.target;
+
+        // 이벤트가 발생한 노드
+        node.style({
+            "background-color": "#295651",
+            //"font-size" : 15,
+            //"width" : 40,
+            //"height" : 40,
+            //"target-arrow-color" : "pink"
+        });
+
+        node.successors().each(function(subObject){
+            if (subObject.isNode()) {
+                subObject.style({
+                    "background-color": "#97baa4"
+                });
+            } else if (subObject.isEdge()) {
+                subObject.style({
+                    "target-arrow-color" : "#97baa4",   // 화살머리 색상
+                    "line-color" : "#97baa4",           // 화살표 색상
+                    "width" : 2
+                });
+            }
+
+        });
+
+        node.predecessors().each(function(subObject){
+            if (subObject.isNode()) {
+                subObject.style({
+                    "background-color": "#ff6745"
+                });
+            } else if (subObject.isEdge()) {
+                subObject.style({
+                    "target-arrow-color" : "#c7c5b8",   // 화살머리 색상
+                    "line-color" : "#c7c5b8",           // 화살표 색상
+                    "width" : 2
+                });
+            }
+        });
+
+        node.neighborhood().each(function(subObject){
+            if (subObject.isNode()) {
+                subObject.style({
+                    "background-color": tinycolor(subObject.style("background-color")).darken(0.3).toString()
+                });
+            } else if (subObject.isEdge()) {
+                subObject.style({
+                    "target-arrow-color" : tinycolor(subObject.style("target-arrow-color")).darken(0.3).toString(),
+                    //"line-color" : "#c7c5b8",           // 화살표 색상
+                    "line-color" : tinycolor(subObject.style("line-color")).darken(0.3).toString(),
+                    "width" : 2
+                });
+            }
+        });
+
+        let status = node.data().status;
+        if (status) {
+
+            //node.data().label = status;
+            //node.data("label", node.data("label") + " -> " + status);
+            //console.log(node.data("label"));
+
+            /** subnode  **/
+            // https://stackoverflow.com/questions/35035104/how-to-add-nodes-at-dynamic-positions-in-cytoscape-js
+            /*cy.add([
+                { group: "nodes", data: { id: "status_" + node.data().id , label: status }},
+                { group: "edges", data: { id: "status_edge_", source: node.data().id, target: "status_" + node.data().id  } }
+            ]);*/
+
+
+            //let layout = cy.layout({ name: "cose-bilkent" });
+            //let layout = cy.layout({ name: "preset" });
+            //layout.stop();
+            //layout.run();
+
+            //.move( node.data().id );
+            //console.log(cy.$("#status_" + node.data().id).position());
+            // console.log(cy.$("#status_" + node.data().id).position({ x : 10, y : 10}));
+            //console.log(cy.$("#" + node.data().id).relativePosition());
+            //cy.$("#status_" + node.data().id).shift("#" + node.data().id).relativePosition());
+            //cy.$("#status_" + node.data().id).shift(cy.$("#" + node.data().id).position());
+            //console.log(cy.$("#status_" + node.data().id).position());
+
+            //cy.$("#status_" + node.data().id).relativePosition(cy.$("#" + node.data().id).position());
+            //cy.$("#status_" + node.data().id).grabify();
+
+            /* cy.$("#status_" + node.data().id).move({
+                 target: node.data().id
+             })
+             cy.$("#status_edge_" + node.data().id).move({
+                 target: node.data().id
+             })*/
+        }
+
+    });
+
+
+    cy.on("mouseout tapend", "node", function(event){
+        //console.log(event.type);
+
+        // 방법 1 : 제대로 작동 안함
+        // cy.style().resetToDefault();
+
+        // 방법 2 : 포커스되지 않은 것만 바뀐다.
+        /*cy.style()
+            .selector("node")
+            .style({
+                "background-color": "yellow"
+            })
+            .update() // update the elements in the graph with the new style
+        ;*/
+
+        // 방법 3 : 성공
+        cy.nodes().each(
+            function(target) {
+                target.style(({
+                    "background-color": "#8fc1e3"
+                    /*,
+                    "font-size" : 5,
+                    "width" : 30,
+                    "height" : 30*/
+                }));
+            }
+        );
+
+        cy.edges().each(
+            function(target) {
+                target.style(({
+                    //"width": 1,
+                    "line-color": "#ccc",    // 화살표 색상
+                    "target-arrow-color" : "#ccc",   // 화살머리 색상
+                }));
+            }
+        );
+
+        if (event.type === "tapend") {
+            //let url = event.target.data("location");  // 이것도 가능
+            let url = event.target.data().url;
+            if(url) {
+                window.open(url);
+            }
+        }
+
+        cy.remove(cy.edges("[target *='status']"));
+        cy.remove(cy.nodes("[id *= 'status']"));
+
+    });
+
+
+</script>
+</body>
+</html>

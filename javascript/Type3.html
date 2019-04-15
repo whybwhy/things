@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    const Util = {
+        getRandom (min = 0, max = 1) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+        getRandomToArray (min = 0, max = 1, size = 0, isDuplication = false) {
+            const randomList = [];
+
+            for (let i=0; i < size; i++) {
+                let r = this.getRandom(min, max);
+                if (isDuplication) {
+                    randomList.push(r);
+                } else {
+                    if (size > max - min + 1) break;
+                    (randomList.includes(r)) ? --i : randomList.push(r);
+                }
+            }
+            return randomList;
+        },
+        regexTest (keyword, contents) {
+            const re = new RegExp(keyword, 'g');
+            return re.test(contents);
+        },
+        isNumber (value) {
+            const regexp = /^[0-9]*$/g;
+            return regexp.test(value);
+        }
+    };
+
+    const Solution = (function() {
+        function Solution() {
+        }
+
+        Solution.prototype.check = function(array) {
+        };
+
+        Solution.prototype.solve = function(array) {
+
+        };
+
+        return Solution;
+    })();
+
+    function solution(A) {
+
+        const solution = new Solution();
+        if (!solution.check(A)) {
+            return `Comfirm Arguments : ${A}`;
+        }
+        return solution.solve(A);
+    }
+
+    console.log(solution());
+    console.log(solution());
+    console.log(solution());
+
+</script>
+</body>
+</html>
