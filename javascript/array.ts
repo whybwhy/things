@@ -1,7 +1,6 @@
 {
     // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array
-    // https://beomyeonandrewkim.github.io/posts/javasciript/handle-array/
-    // https://jaeyeophan.github.io/2017/05/11/ES6-12-Array-API/#Array-prototype-entries
+
     // Prototype Object Access
     console.log(Array.prototype);
     console.dir(Array.prototype);
